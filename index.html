@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quaynect — All In One Central Platform</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== RESET & BASE ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      color: #1a1a1a;
+      background: #fff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { max-width: 100%; height: auto; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ===== UTILITY ===== */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+    .section-pad { padding: 80px 0; }
+    .text-center { text-align: center; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 80vh;
+      background: linear-gradient(160deg, #f5f5f5 0%, #e8e8e8 60%, #d9d9d9 100%);
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding: 80px 0 0;
+    }
+    .hero .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+    }
+    .hero-text {
+      flex: 1;
+      color: #1a1a1a;
+      padding-bottom: 80px;
+    }
+    .hero-logo {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-bottom: 12px;
+    }
+    .hero-logo .logo-icon {
+      width: 80px; height: 80px;
+      border-radius: 20px;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .hero-logo .logo-icon img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .hero-logo .wordmark-img {
+      height: clamp(40px, 5vw, 60px);
+      width: auto;
+    }
+    .hero-subtitle-img {
+      height: clamp(16px, 2vw, 24px);
+      width: auto;
+      margin-top: 4px;
+      margin-left: 98px;
+    }
+    .hero-phone {
+      flex: 0 0 50%;
+      position: relative;
+      align-self: flex-end;
+    }
+    .hero-phone img {
+      width: 100%;
+      max-width: 580px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+    }
+    .phone-mockup-inner {
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(180deg, #e8f0fe 0%, #fff 30%);
+      border-radius: 36px;
+      padding: 40px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      color: #333;
+    }
+    .phone-mockup-inner .phone-greeting {
+      font-size: 18px;
+      font-weight: 700;
+      color: #1a1a1a;
+      align-self: flex-start;
+    }
+    .phone-mockup-inner .phone-sub {
+      font-size: 11px;
+      color: #777;
+      align-self: flex-start;
+    }
+    .phone-card {
+      width: 100%;
+      height: 90px;
+      background: linear-gradient(135deg, #4a7bff, #6e9dff);
+      border-radius: 14px;
+      margin-top: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 600;
+      font-size: 12px;
+    }
+    .phone-dashboard-label {
+      align-self: flex-start;
+      font-weight: 600;
+      margin-top: 10px;
+      font-size: 13px;
+    }
+    .phone-icons {
+      display: flex;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .phone-icon-circle {
+      width: 44px; height: 44px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+    }
+    .phone-nav {
+      margin-top: auto;
+      display: flex;
+      justify-content: space-around;
+      width: 100%;
+      padding: 8px 0;
+      border-top: 1px solid #eee;
+      font-size: 9px;
+      color: #888;
+    }
+    .phone-nav span { text-align: center; }
+
+    /* ===== ABOUT ===== */
+    .about {
+      padding: 80px 0 60px;
+      text-align: center;
+    }
+    .about-title {
+      font-size: clamp(0.75rem, 1.2vw, 0.9rem);
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #4a7bff;
+      margin-bottom: 24px;
+    }
+    .about p {
+      max-width: 780px;
+      margin: 0 auto 16px;
+      color: #555;
+      font-size: clamp(0.9rem, 1.3vw, 1.05rem);
+      line-height: 1.75;
+    }
+
+    /* ===== PROBLEMS ===== */
+    .problems { padding: 40px 0 80px; }
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+      max-width: 780px;
+      margin: 0 auto 48px;
+    }
+    .problem-icon {
+      flex: 0 0 72px;
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #dde6ff, #c5d4ff);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .problem-icon svg { width: 32px; height: 32px; fill: #4a7bff; }
+    .problem-content h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+    .problem-content p {
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ===== QUOTE CARDS (AFFINITY) — LIQUID GLASS ===== */
+    .affinity {
+      padding: 60px 0 80px;
+      background: #fff;
+      overflow: hidden;
+    }
+    .affinity .container { max-width: 1100px; }
+    .quote-scatter {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+    .quote-row {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+    }
+    /* Offset rows for the staggered look */
+    .quote-row:nth-child(2) { margin-left: -60px; }
+    .quote-row:nth-child(3) { margin-left: 60px; }
+    .quote-card {
+      width: 240px;
+      padding: 22px 26px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      line-height: 1.55;
+      font-style: italic;
+      color: #fff;
+      background: linear-gradient(135deg, #93aed4 0%, #8aa5d0 50%, #a0b6dc 100%);
+      box-shadow:
+        0 8px 28px rgba(100,140,200,0.22),
+        inset 0 1px 0 rgba(255,255,255,0.15);
+      border: none;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      display: flex;
+      align-items: center;
+    }
+    .quote-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      box-shadow:
+        0 14px 40px rgba(100,140,200,0.35),
+        inset 0 1px 0 rgba(255,255,255,0.3),
+        inset 0 -1px 0 rgba(0,0,0,0.05);
+    }
+
+    .affinity-caption {
+      text-align: center;
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #777;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    /* ===== PROCESS WORK ===== */
+    .process { padding: 60px 0; text-align: center; }
+    .process-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #4a7bff;
+      margin-bottom: 32px;
+    }
+    .process-gallery {
+      display: flex;
+      gap: 16px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding-bottom: 12px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .process-gallery::-webkit-scrollbar { height: 6px; }
+    .process-gallery::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
+    .process-img {
+      flex: 0 0 240px;
+      height: 240px;
+      border-radius: 10px;
+      scroll-snap-align: start;
+      overflow: hidden;
+    }
+    .process-img img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    /* ===== STAKEHOLDER ===== */
+    .stakeholder {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .stakeholder h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+    .stakeholder > .container > p {
+      max-width: 700px;
+      margin: 0 auto 32px;
+      font-size: 0.92rem;
+      color: #666;
+      line-height: 1.7;
+    }
+    .stakeholder-map-placeholder {
+      max-width: 800px;
+      margin: 0 auto;
+      height: 400px;
+      background: #f7f8fb;
+      border: 2px solid #e5e7ec;
+      border-radius: 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #aaa;
+      font-size: 0.85rem;
+      gap: 8px;
+    }
+    .stakeholder-map-placeholder span { font-size: 0.75rem; }
+
+    /* ===== KEY INSIGHTS ===== */
+    .insights {
+      padding: 80px 0;
+      background: #f7f8fb;
+    }
+    .insights-heading {
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #888;
+      margin-bottom: 48px;
+    }
+    .insights-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 40px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .insight-card { text-align: left; }
+    .insight-number {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+    .insight-number .arrow {
+      font-size: 1.3rem;
+      color: #4a7bff;
+    }
+    .insight-number span {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+    .insight-label {
+      font-size: 1rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      color: #1a1a1a;
+    }
+    .insight-card p {
+      font-size: 0.9rem;
+      color: #666;
+      line-height: 1.7;
+    }
+
+    /* ===== HMW ===== */
+    .hmw {
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hmw-pre {
+      font-size: 0.85rem;
+      color: #888;
+      margin-bottom: 12px;
+    }
+    .hmw-question {
+      max-width: 780px;
+      margin: 0 auto;
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      font-weight: 700;
+      line-height: 1.7;
+      color: #1a1a1a;
+    }
+
+    /* ===== SOLUTION SECTION ===== */
+    .solution {
+      padding: 80px 0 60px;
+      background: linear-gradient(180deg, #e3ebff 0%, #d5dffa 50%, #c9d6f8 100%);
+      text-align: center;
+    }
+    .solution-intro {
+      max-width: 720px;
+      margin: 0 auto 40px;
+      font-size: 0.92rem;
+      color: #555;
+      line-height: 1.75;
+    }
+    .solution-hero-phones {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 40px;
+    }
+    .solution-phone {
+      width: 160px;
+      height: 320px;
+      background: #222;
+      border-radius: 28px;
+      border: 3px solid #555;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 0.65rem;
+      position: relative;
+    }
+    .solution-phone:nth-child(2) {
+      transform: translateY(-20px) scale(1.05);
+      z-index: 1;
+    }
+    .solution-logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      margin-bottom: 48px;
+    }
+    .solution-logo .logo-icon {
+      width: 56px; height: 56px;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+    .solution-logo .logo-icon img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+    }
+    .solution-logo .wordmark-img {
+      height: 48px;
+      width: auto;
+    }
+    .solution-logo h2 {
+      font-size: 2.4rem;
+      font-weight: 800;
+      color: #1a1a1a;
+      letter-spacing: -1px;
+    }
+
+    /* ===== APP SCREENS ===== */
+    .screens {
+      padding: 0 0 60px;
+      background: linear-gradient(180deg, #c9d6f8 0%, #dce4fb 100%);
+    }
+    .screens-scroll {
+      display: flex;
+      gap: 32px;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      padding: 20px 40px 20px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .screens-scroll::-webkit-scrollbar { height: 6px; }
+    .screens-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 3px; }
+    .screen-item {
+      flex: 0 0 260px;
+      scroll-snap-align: center;
+      text-align: center;
+    }
+    .screen-phone {
+      width: 220px;
+      height: 440px;
+      background: #222;
+      border-radius: 32px;
+      border: 3px solid #555;
+      margin: 0 auto 20px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.2);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #888;
+      font-size: 0.7rem;
+    }
+    .screen-phone img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .screen-item h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+    .screen-item p {
+      font-size: 0.82rem;
+      color: #555;
+      line-height: 1.6;
+      max-width: 240px;
+      margin: 0 auto;
+    }
+
+    /* ===== PROTOTYPE CTA ===== */
+    .prototype {
+      padding: 60px 0;
+      background: #1a1a2e;
+    }
+    .prototype-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 40px;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 40px;
+      background: linear-gradient(135deg, #222244, #2a2a4a);
+      border-radius: 20px;
+    }
+    .prototype-text { color: #fff; }
+    .prototype-text h3 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .prototype-text p {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.6);
+    }
+    .prototype-qr {
+      flex: 0 0 120px;
+      width: 120px; height: 120px;
+      background: #fff;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+    .prototype-qr::after {
+      content: 'QR';
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #ccc;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      padding: 32px 0;
+      text-align: center;
+      background: #111;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.8rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .hero .container {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text { padding-bottom: 40px; }
+      .hero-subtitle-img { margin-left: 0; }
+      .hero-phone { width: auto; flex: 0 0 45%; }
+      .hero-logo { justify-content: center; }
+      .insights-grid { grid-template-columns: 1fr; gap: 32px; }
+      .insight-card { text-align: center; }
+      .prototype-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+      .solution-phone { width: 130px; height: 260px; }
+      .quote-row { margin-left: 0 !important; }
+      .quote-card { width: 200px; font-size: 0.8rem; padding: 18px 20px; }
+    }
+    @media (max-width: 600px) {
+      .section-pad { padding: 48px 0; }
+      .hero { min-height: auto; padding: 80px 0 48px; }
+      .hero-logo .logo-icon { width: 52px; height: 52px; font-size: 26px; border-radius: 14px; }
+      .problem-item { flex-direction: column; align-items: center; text-align: center; }
+      .problem-icon { flex: 0 0 60px; width: 60px; height: 60px; }
+      .quote-scatter { gap: 12px; }
+      .quote-row { flex-wrap: wrap; gap: 12px; margin-left: 0 !important; }
+      .quote-card { width: 160px; font-size: 0.72rem; padding: 14px 16px; border-radius: 16px; }
+      .screen-item { flex: 0 0 220px; }
+      .screen-phone { width: 180px; height: 360px; }
+      .solution-phone { width: 110px; height: 220px; border-radius: 22px; }
+      .process-img { flex: 0 0 160px; height: 120px; }
+      .stakeholder-map-placeholder { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ======================== HERO ======================== -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-text">
+        <div class="hero-logo">
+          <div class="logo-icon"><img src="images/app-icon.png" alt="Quaynect logo"></div>
+          <img src="images/quaynect-wordmark.png" alt="Quaynect" class="wordmark-img">
+        </div>
+        <img src="images/subtitle.png" alt="All In One Central Platform" class="hero-subtitle-img">
+      </div>
+      <div class="hero-phone">
+        <img src="images/hero-phone.png" alt="Hand holding phone showing the Quaynect app">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== ABOUT ======================== -->
+  <section class="about">
+    <div class="container">
+      <p class="about-title">ALL IN ONE DIGITAL PLATFORM FOR QUAYSIDE</p>
+      <p>
+        Quaynect is a centralized digital platform designed for residents of Quayside, a new waterfront community in Toronto. It brings together concierge services, community engagement, and shared resource booking into one system, reducing friction in daily tasks while supporting affordability, wellbeing, and long-term belonging.
+      </p>
+      <p>
+        Rather than focusing on single moments, Quaynect is designed to support residents over time, from move-in through sustained participation in community life.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================== PROBLEMS ======================== -->
+  <section class="problems">
+    <div class="container">
+
+      <!-- Problem 1 -->
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/></svg>
+        </div>
+        <div class="problem-content">
+          <h3>1. Community Belonging Is Fragmented and Hard to Initiate</h3>
+          <p>Residents often struggle to form connections in new buildings due to the lack of visible, low-pressure ways to discover activities or engage with others. As a result, social participation feels effortful and inconsistent, causing many residents to remain socially disconnected despite living in close proximity.</p>
+        </div>
+      </div>
+
+      <!-- Problem 2 -->
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 3c1.93 0 3.5 1.57 3.5 3.5S13.93 13 12 13s-3.5-1.57-3.5-3.5S10.07 6 12 6zm7 13H5v-.23c0-.62.28-1.2.76-1.58C7.47 15.82 9.64 15 12 15s4.53.82 6.24 2.19c.48.38.76.97.76 1.58V19z"/></svg>
+        </div>
+        <div class="problem-content">
+          <h3>2. Essential Services Are Scattered Across Multiple Systems</h3>
+          <p>Essential services such as billing, maintenance, deliveries, and general support are spread across multiple systems, creating confusion and unnecessary friction in daily routines. This fragmentation increases cognitive load and reduces residents' sense of ease, trust, and control in their living environment.</p>
+        </div>
+      </div>
+
+      <!-- Problem 3 -->
+      <div class="problem-item">
+        <div class="problem-icon">
+          <svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+        </div>
+        <div class="problem-content">
+          <h3>3. Affordability Pressures Limit Participation and Access</h3>
+          <p>High living costs shape how residents engage with their community, often discouraging participation in events, amenities, or shared experiences that feel costly or exclusive. Without affordable, shared alternatives, community life becomes constrained by financial barriers rather than enabled through collective access.</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ======================== AFFINITY / STICKY NOTES ======================== -->
+  <section class="affinity">
+    <div class="container">
+      <div class="quote-scatter">
+        <div class="quote-row">
+          <div class="quote-card">“Downtown housing prices aren’t fair, especially for students … utilities can cost $80/month.”</div>
+          <div class="quote-card">“Open, versatile spaces where people can hang out without spending money are key.”</div>
+        </div>
+        <div class="quote-row">
+          <div class="quote-card">“I love when it [a space] feels designed for people to actually spend time … tables, benches, greenery, shade.”</div>
+          <div class="quote-card">“Being able to live rent-free made a huge difference.”</div>
+          <div class="quote-card">“I struggle with studying … need specific conditions … new task, new place … body doubling with friends on the roof.”</div>
+        </div>
+        <div class="quote-row">
+          <div class="quote-card">“It’s a bit confusing, you have to go through like a hundred different pages and websites to pay everything.”</div>
+          <div class="quote-card">“I feel like things being too expensive … wouldn’t attend events … doesn’t need to be that way.”</div>
+        </div>
+      </div>
+      <p class="affinity-caption">
+        After conducting semi-structured interviews, we synthesized key insights by organizing notes into affinity maps to identify recurring themes, tensions, and needs across participants.
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================== PROCESS WORK ======================== -->
+  <section class="process">
+    <div class="container">
+      <h2 class="process-title">Process Work</h2>
+      <div class="process-gallery">
+        <div class="process-img"><img src="images/process-transit.png" alt="Transit category sticky notes"></div>
+        <div class="process-img"><img src="images/process-leisure.png" alt="Leisure category sticky notes"></div>
+        <div class="process-img"><img src="images/process-health-safety.png" alt="Health & Safety category sticky notes"></div>
+        <div class="process-img"><img src="images/process-entertainment.png" alt="Entertainment & Attractions category sticky notes"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== STAKEHOLDER MAPPING ======================== -->
+  <section class="stakeholder">
+    <div class="container">
+      <h2>Stakeholder Mapping</h2>
+      <p>These patterns were then translated into stakeholder maps, allowing us to understand relationships between residents, building staff, and systems, and to locate where breakdowns and opportunities emerged within the broader service ecosystem.</p>
+      <div class="stakeholder-map-placeholder">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="#ccc"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
+        <span>Stakeholder Map Image</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== KEY INSIGHTS ======================== -->
+  <section class="insights">
+    <div class="container">
+      <p class="insights-heading">KEY INSIGHTS</p>
+      <div class="insights-grid">
+
+        <div class="insight-card">
+          <div class="insight-number">
+            <span class="arrow">↗</span>
+            <span>01.</span>
+          </div>
+          <p class="insight-label">Convenience</p>
+          <p>Simplifying daily tasks improves how residents experience their community more naturally.</p>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-number">
+            <span class="arrow">↗</span>
+            <span>02.</span>
+          </div>
+          <p class="insight-label">Belonging</p>
+          <p>Everyday interactions and shared interests bring residents together and strengthen community ties.</p>
+        </div>
+
+        <div class="insight-card">
+          <div class="insight-number">
+            <span class="arrow">↗</span>
+            <span>03.</span>
+          </div>
+          <p class="insight-label">Affordability</p>
+          <p>Shared resources and sustainable systems reduce daily costs while supporting long-term living.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== HMW ======================== -->
+  <section class="hmw">
+    <div class="container">
+      <p class="hmw-pre">Guided by these insights, this led us to ask</p>
+      <p class="hmw-question">
+        How might we design systems that not only reduce everyday friction, but also create economic support, shared responsibility, and a stronger sense of comfort and belonging within the neighbourhood?
+      </p>
+    </div>
+  </section>
+
+  <!-- ======================== SOLUTION ======================== -->
+  <section class="solution">
+    <div class="container">
+      <p class="solution-intro">
+        In response, we developed Quaynect, a centralized service platform designed to simplify everyday tasks, support shared access to resources, and enable community belonging to develop gradually through repeated, low-pressure interactions.
+      </p>
+      <div class="solution-hero-phones">
+        <div class="solution-phone" style="border-radius: 24px; overflow: hidden;"><img src="images/homepage.png" alt="App screen" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="solution-phone" style="border-radius: 24px; overflow: hidden;"><img src="images/homepage.png" alt="App screen" style="width:100%;height:100%;object-fit:cover;"></div>
+      </div>
+      <div class="solution-logo">
+        <div class="logo-icon"><img src="images/app-icon.png" alt="Quaynect icon"></div>
+        <img src="images/quaynect-wordmark.png" alt="Quaynect" class="wordmark-img">
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== APP SCREENS ======================== -->
+  <section class="screens">
+    <div class="container">
+      <div class="screens-scroll">
+
+        <div class="screen-item">
+          <div class="screen-phone"><img src="images/homepage.png" alt="Homepage screen"></div>
+          <h4>Homepage</h4>
+          <p>The main screen of the app, acting as a customizable dashboard for essential services and information tailored to each user.</p>
+        </div>
+
+        <div class="screen-item">
+          <div class="screen-phone">Community</div>
+          <h4>Community Groups</h4>
+          <p>A shared digital space for events, clubs, and interest-based activities that support low-pressure social participation.</p>
+        </div>
+
+        <div class="screen-item">
+          <div class="screen-phone">Bookings</div>
+          <h4>Resource Booking</h4>
+          <p>Shared tools, appliances, and spaces that residents can reserve instead of purchasing individually, supporting affordability and sustainability.</p>
+        </div>
+
+        <div class="screen-item">
+          <div class="screen-phone">Incentives</div>
+          <h4>Incentives</h4>
+          <p>Points and rewards system that encourages participation in community events, resource sharing, and sustainable behaviours.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== PROTOTYPE CTA ======================== -->
+  <section class="prototype">
+    <div class="container">
+      <div class="prototype-inner">
+        <div class="prototype-text">
+          <h3>Try the live Prototype</h3>
+          <p>Scan with your phone to view on the web.</p>
+        </div>
+        <div class="prototype-qr"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================== FOOTER ======================== -->
+  <footer class="footer">
+    <div class="container">
+      <p>&copy; 2026 Quaynect. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
