@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Horizon</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--bg: #f6f5f2;
+				--text: #1f2937;
+				--muted: #6b7280;
+				--line: #e5e7eb;
+				--max: 920px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				font-family: "Inter", system-ui, -apple-system, sans-serif;
+				color: var(--text);
+				background: var(--bg);
+				line-height: 1.7;
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			.container {
+				width: min(var(--max), 92vw);
+				margin: 0 auto;
+			}
+
+			header {
+				border-bottom: 1px solid var(--line);
+				padding: 18px 0;
+				font-size: 0.9rem;
+				letter-spacing: 0.03em;
+				text-transform: uppercase;
+			}
+
+			.hero {
+				padding: 50px 0 24px;
+			}
+
+			.hero h1 {
+				margin: 0 0 12px;
+				font-size: clamp(2rem, 3vw, 2.6rem);
+			}
+
+			.hero p {
+				margin: 0;
+				color: var(--muted);
+			}
+
+			.media {
+				margin: 30px 0;
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
+			}
+
+			.details {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+				gap: 20px;
+				border-top: 1px solid var(--line);
+				padding-top: 18px;
+				margin-top: 20px;
+				font-size: 0.95rem;
+				color: var(--muted);
+			}
+
+			.footer {
+				border-top: 1px solid var(--line);
+				padding: 28px 0 50px;
+				color: var(--muted);
+				font-size: 0.85rem;
+				text-transform: uppercase;
+			}
+		</style>
+	</head>
+	<body>
+		<header class="container">
+			<a href="Home page">← Back to Home</a>
+		</header>
+
+		<main class="container">
+			<section class="hero">
+				<h1>Horizon</h1>
+				<p>AI-powered file management concept for macOS with natural language controls.</p>
+			</section>
+
+			<div class="media">
+				<img
+					src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1600&q=80"
+					alt="Laptop on a desk showing interface"
+				/>
+			</div>
+
+			<p>
+				Horizon focuses on conversational file operations, smart sorting rules,
+				and subtle motion cues that keep users oriented while working at speed.
+			</p>
+
+			<div class="details">
+				<div>Role: UX/UI Designer</div>
+				<div>Contribution: Product + Motion</div>
+				<div>Timeline: 12 Weeks</div>
+			</div>
+		</main>
+
+		<footer class="container footer">© 2026 Arcel</footer>
+	</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Portfolio home page" />
+		<title>Portfolio | Home</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+			rel="stylesheet"
+		/>
+		<style>
+			:root {
+				--bg: #f6f5f2;
+				--text: #1f2937;
+				--muted: #6b7280;
+				--line: #e5e7eb;
+				--accent: #111827;
+				--max: 1160px;
+			}
+
+			* {
+				box-sizing: border-box;
+			}
+
+			body {
+				margin: 0;
+				font-family: "Inter", system-ui, -apple-system, sans-serif;
+				color: var(--text);
+				background: var(--bg);
+				line-height: 1.6;
+			}
+
+			a {
+				color: inherit;
+				text-decoration: none;
+			}
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+			}
+
+			.container {
+				width: min(var(--max), 92vw);
+				margin: 0 auto;
+			}
+
+			header {
+				position: sticky;
+				top: 0;
+				background: rgba(246, 245, 242, 0.92);
+				backdrop-filter: blur(10px);
+				z-index: 10;
+				border-bottom: 1px solid var(--line);
+			}
+
+			.nav {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				padding: 18px 0;
+				font-size: 0.9rem;
+				letter-spacing: 0.02em;
+			}
+
+			.nav-logo {
+				width: 40px;
+				height: 40px;
+				background: var(--line);
+				border-radius: 8px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				color: var(--muted);
+				font-size: 0.7rem;
+			}
+
+			.nav-links {
+				display: flex;
+				gap: 24px;
+				text-transform: uppercase;
+				color: var(--muted);
+			}
+
+			.hero {
+				padding: 100px 0 80px;
+				display: grid;
+				grid-template-columns: 1fr 2fr;
+				gap: 60px;
+				align-items: baseline;
+			}
+
+			.hero-name {
+				font-size: clamp(2.5rem, 5vw, 4rem);
+				font-weight: 700;
+				letter-spacing: -0.02em;
+				line-height: 1.1;
+				color: var(--text);
+			}
+
+			.hero-desc {
+				font-size: clamp(1.1rem, 2vw, 1.35rem);
+				line-height: 1.6;
+				color: var(--muted);
+				max-width: 540px;
+			}
+
+			.hero p {
+				font-size: clamp(1.1rem, 2vw, 1.4rem);
+				margin: 0;
+			}
+
+			.hero strong {
+				font-weight: 600;
+			}
+
+			.section-title {
+				font-size: 0.8rem;
+				text-transform: uppercase;
+				letter-spacing: 0.1em;
+				color: var(--muted);
+				margin-bottom: 16px;
+			}
+
+			.projects {
+				padding: 10px 0 60px;
+				display: flex;
+				flex-direction: column;
+				gap: 54px;
+			}
+
+			.project {
+				display: grid;
+				grid-template-columns: minmax(240px, 320px) 1fr;
+				gap: 40px;
+				align-items: start;
+			}
+
+			.project-info {
+				position: sticky;
+				top: 90px;
+				align-self: start;
+			}
+
+			.project-year {
+				font-size: 0.85rem;
+				color: var(--muted);
+				margin-bottom: 6px;
+			}
+
+			.project-title {
+				font-size: 1.1rem;
+				font-weight: 600;
+				margin: 0 0 14px;
+			}
+
+			.project-link {
+				color: inherit;
+				text-decoration: none;
+				display: inline-block;
+			}
+
+			.project-link:hover {
+				text-decoration: underline;
+				text-underline-offset: 4px;
+			}
+
+			.project-desc {
+				color: var(--muted);
+				margin: 0 0 18px;
+				font-size: 0.95rem;
+			}
+
+			.meta-list {
+				border-top: 1px solid var(--line);
+				padding-top: 14px;
+				font-size: 0.9rem;
+				color: var(--muted);
+				display: grid;
+				gap: 8px;
+			}
+
+			.meta-row {
+				display: flex;
+				justify-content: space-between;
+			}
+
+			.meta-row span {
+				color: var(--text);
+			}
+
+			.project-media {
+				background: #fff;
+				border: 1px solid var(--line);
+				border-radius: 8px;
+				overflow: hidden;
+				box-shadow: 0 12px 30px rgba(31, 41, 55, 0.08);
+			}
+
+			.footer {
+				padding: 50px 0 80px;
+				border-top: 1px solid var(--line);
+				display: flex;
+				justify-content: space-between;
+				flex-wrap: wrap;
+				gap: 12px;
+				font-size: 0.9rem;
+				color: var(--muted);
+				text-transform: uppercase;
+			}
+
+			.footer a {
+				color: var(--text);
+				font-weight: 500;
+			}
+
+			@media (max-width: 900px) {
+				.hero,
+				.project {
+					grid-template-columns: 1fr;
+				}
+
+				.hero {
+					gap: 24px;
+					padding: 60px 0 50px;
+				}
+
+				.project-info {
+					position: static;
+				}
+			}
+
+			@media (max-width: 700px) {
+				.nav {
+					gap: 16px;
+				}
+
+				.nav-links {
+					gap: 16px;
+					font-size: 0.8rem;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container nav">
+				<div class="nav-logo">Logo</div>
+				<nav class="nav-links">
+					<a href="#projects">Projects</a>
+					<a href="#about">About me</a>
+					<a href="#">Resume</a>
+				</nav>
+			</div>
+		</header>
+
+		<main class="container">
+			<section class="hero" id="info">
+				<h1 class="hero-name">Mark Miranda</h1>
+				<p class="hero-desc">
+					Product designer crafting beautiful digital experiences. 
+					Previously Design Intern at Dropbox.
+				</p>
+			</section>
+
+			<section class="projects" id="work">
+				<article class="project">
+					<div class="project-info">
+						<div class="project-year">2025</div>
+						<h3 class="project-title">
+							<a class="project-link" href="quaynect.html">
+								Quaynect — All In One Central Platform
+							</a>
+						</h3>
+						<p class="project-desc">
+							A centralized service platform designed to simplify everyday tasks,
+							support shared access to resources, and foster community belonging.
+						</p>
+						<div class="meta-list">
+							<div class="meta-row">Role <span>UX/UI Designer</span></div>
+							<div class="meta-row">Contribution <span>Research + Product</span></div>
+							<div class="meta-row">Timeline <span>12 Weeks</span></div>
+						</div>
+					</div>
+					<a class="project-media" href="quaynect.html">
+						<img
+							src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1400&q=80"
+							alt="Quaynect app interface"
+						/>
+					</a>
+				</article>
+
+				<article class="project">
+					<div class="project-info">
+						<div class="project-year">2024</div>
+						<h3 class="project-title">
+							<a class="project-link" href="dropbox-recover-deleted.html">
+								Dropbox — Recover Deleted Files
+							</a>
+						</h3>
+						<p class="project-desc">
+							Improved file recovery flows with clearer pathways and reduced
+							support tickets.
+						</p>
+						<div class="meta-list">
+							<div class="meta-row">Role <span>Product Design Intern</span></div>
+							<div class="meta-row">Contribution <span>UX + Prototyping</span></div>
+							<div class="meta-row">Timeline <span>8 Weeks</span></div>
+						</div>
+					</div>
+					<a class="project-media" href="dropbox-recover-deleted.html">
+						<img
+							src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=1400&q=80"
+							alt="Phone screen showing file recovery"
+						/>
+					</a>
+				</article>
+
+				<article class="project">
+					<div class="project-info">
+						<div class="project-year">2024</div>
+						<h3 class="project-title">
+							<a class="project-link" href="quira.html">Quira</a>
+						</h3>
+						<p class="project-desc">
+							A productivity concept exploring mindful task management for remote
+							teams.
+						</p>
+						<div class="meta-list">
+							<div class="meta-row">Role <span>UX/UI Designer</span></div>
+							<div class="meta-row">Contribution <span>Concept + Visual</span></div>
+							<div class="meta-row">Timeline <span>4 Months</span></div>
+						</div>
+					</div>
+					<a class="project-media" href="quira.html">
+						<img
+							src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1400&q=80"
+							alt="Phone mockup on green fabric"
+						/>
+					</a>
+				</article>
+
+				<article class="project">
+					<div class="project-info">
+						<div class="project-year">2025</div>
+						<h3 class="project-title">
+							<a class="project-link" href="horizon.html">Horizon</a>
+						</h3>
+						<p class="project-desc">
+							An AI-powered file management concept for macOS with natural
+							language controls.
+						</p>
+						<div class="meta-list">
+							<div class="meta-row">Role <span>UX/UI Designer</span></div>
+							<div class="meta-row">Contribution <span>Product + Motion</span></div>
+							<div class="meta-row">Timeline <span>12 Weeks</span></div>
+						</div>
+					</div>
+					<a class="project-media" href="horizon.html">
+						<img
+							src="https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?auto=format&fit=crop&w=1400&q=80"
+							alt="Laptop on a desk showing interface"
+						/>
+					</a>
+				</article>
+			</section>
+		</main>
+
+		<footer class="container footer" id="friends">
+			<div>Folio © 2026</div>
+			<div>Designed & Built by Mark</div>
+			<div>
+				<a href="mailto:hello@yourdomain.com">Email</a> ·
+				<a href="https://www.instagram.com" target="_blank" rel="noreferrer">Instagram</a>
+				· <a href="https://www.linkedin.com" target="_blank" rel="noreferrer">LinkedIn</a>
+			</div>
+		</footer>
+	</body>
+</html>
