@@ -70,9 +70,10 @@
       height: clamp(40px, 5vw, 60px);
       width: auto;
     }
-    .hero-subtitle-img {
-      height: clamp(16px, 2vw, 24px);
-      width: auto;
+    .hero-tagline {
+      font-size: clamp(1rem, 2vw, 1.35rem);
+      font-weight: 300;
+      color: #777;
       margin-top: 4px;
       margin-left: 98px;
     }
@@ -500,11 +501,6 @@
       color: #888;
       font-size: 0.7rem;
     }
-    .screen-phone img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
     .screen-item h4 {
       font-size: 1rem;
       font-weight: 700;
@@ -578,7 +574,7 @@
         text-align: center;
       }
       .hero-text { padding-bottom: 40px; }
-      .hero-subtitle-img { margin-left: 0; }
+      .hero-tagline { margin-left: 0; }
       .hero-phone { width: auto; flex: 0 0 45%; }
       .hero-logo { justify-content: center; }
       .insights-grid { grid-template-columns: 1fr; gap: 32px; }
@@ -606,9 +602,77 @@
       .process-img { flex: 0 0 160px; height: 120px; }
       .stakeholder-map-placeholder { height: 260px; }
     }
+
+    /* ===== STICKY SECTION NAV ===== */
+    .section-nav {
+      position: fixed;
+      bottom: 40px;
+      left: 40px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .section-nav a {
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.2s ease, transform 0.2s ease;
+      position: relative;
+      padding-left: 16px;
+    }
+
+    .section-nav a::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 8px;
+      height: 1px;
+      background: #ccc;
+      transition: width 0.2s ease, background 0.2s ease;
+    }
+
+    .section-nav a:hover {
+      color: #1a1a1a;
+    }
+
+    .section-nav a:hover::before {
+      width: 12px;
+      background: #4a7bff;
+    }
+
+    .section-nav a.active {
+      color: #1a1a1a;
+      font-weight: 600;
+    }
+
+    .section-nav a.active::before {
+      width: 16px;
+      background: #4a7bff;
+    }
+
+    @media (max-width: 900px) {
+      .section-nav {
+        display: none;
+      }
+    }
   </style>
 </head>
 <body>
+
+  <!-- ======================== STICKY SECTION NAV ======================== -->
+  <nav class="section-nav">
+    <a href="#problem">Problem</a>
+    <a href="#discover">Discover</a>
+    <a href="#design">Design</a>
+    <a href="#future">Future</a>
+    <a href="#lessons">Lessons</a>
+  </nav>
 
   <!-- ======================== HERO ======================== -->
   <section class="hero">
@@ -618,7 +682,7 @@
           <div class="logo-icon"><img src="images/app-icon.png" alt="Quaynect logo"></div>
           <img src="images/quaynect-wordmark.png" alt="Quaynect" class="wordmark-img">
         </div>
-        <img src="images/subtitle.png" alt="All In One Central Platform" class="hero-subtitle-img">
+        <p class="hero-tagline">All In one central Platform</p>
       </div>
       <div class="hero-phone">
         <img src="images/hero-phone.png" alt="Hand holding phone showing the Quaynect app">
@@ -640,7 +704,7 @@
   </section>
 
   <!-- ======================== PROBLEMS ======================== -->
-  <section class="problems">
+  <section class="problems" id="problem">
     <div class="container">
 
       <!-- Problem 1 -->
@@ -680,7 +744,7 @@
   </section>
 
   <!-- ======================== AFFINITY / STICKY NOTES ======================== -->
-  <section class="affinity">
+  <section class="affinity" id="discover">
     <div class="container">
       <div class="quote-scatter">
         <div class="quote-row">
@@ -776,14 +840,14 @@
   </section>
 
   <!-- ======================== SOLUTION ======================== -->
-  <section class="solution">
+  <section class="solution" id="design">
     <div class="container">
       <p class="solution-intro">
         In response, we developed Quaynect, a centralized service platform designed to simplify everyday tasks, support shared access to resources, and enable community belonging to develop gradually through repeated, low-pressure interactions.
       </p>
       <div class="solution-hero-phones">
-        <div class="solution-phone" style="border-radius: 24px; overflow: hidden;"><img src="images/homepage.png" alt="App screen" style="width:100%;height:100%;object-fit:cover;"></div>
-        <div class="solution-phone" style="border-radius: 24px; overflow: hidden;"><img src="images/homepage.png" alt="App screen" style="width:100%;height:100%;object-fit:cover;"></div>
+        <div class="solution-phone" style="border-radius: 24px;">App Screen</div>
+        <div class="solution-phone" style="border-radius: 24px;">App Screen</div>
       </div>
       <div class="solution-logo">
         <div class="logo-icon"><img src="images/app-icon.png" alt="Quaynect icon"></div>
@@ -798,7 +862,7 @@
       <div class="screens-scroll">
 
         <div class="screen-item">
-          <div class="screen-phone"><img src="images/homepage.png" alt="Homepage screen"></div>
+          <div class="screen-phone">Homepage</div>
           <h4>Homepage</h4>
           <p>The main screen of the app, acting as a customizable dashboard for essential services and information tailored to each user.</p>
         </div>
@@ -826,7 +890,7 @@
   </section>
 
   <!-- ======================== PROTOTYPE CTA ======================== -->
-  <section class="prototype">
+  <section class="prototype" id="future">
     <div class="container">
       <div class="prototype-inner">
         <div class="prototype-text">
@@ -838,12 +902,73 @@
     </div>
   </section>
 
+  <!-- ======================== LESSONS ======================== -->
+  <section class="insights" id="lessons">
+    <div class="container">
+      <p class="insights-heading">LESSONS LEARNED</p>
+      <div class="insights-grid">
+        <div class="insight-card">
+          <div class="insight-number">
+            <span class="arrow">↗</span>
+            <span>01.</span>
+          </div>
+          <p class="insight-label">User Research</p>
+          <p>Understanding the diverse needs of community residents through interviews and surveys was essential to designing a platform that truly serves their daily lives.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-number">
+            <span class="arrow">↗</span>
+            <span>02.</span>
+          </div>
+          <p class="insight-label">Iterative Design</p>
+          <p>Frequent testing and iteration helped refine the interface and ensure features were intuitive and accessible for all user groups.</p>
+        </div>
+        <div class="insight-card">
+          <div class="insight-number">
+            <span class="arrow">↗</span>
+            <span>03.</span>
+          </div>
+          <p class="insight-label">Systems Thinking</p>
+          <p>Designing for long-term community engagement required thinking beyond individual features to understand how different services interconnect.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======================== FOOTER ======================== -->
   <footer class="footer">
     <div class="container">
       <p>&copy; 2026 Quaynect. All rights reserved.</p>
     </div>
   </footer>
+
+  <script>
+    // Scroll spy for section navigation
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.section-nav a');
+
+    function updateActiveNav() {
+      const scrollPos = window.scrollY + window.innerHeight / 3;
+      
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.offsetHeight;
+        const sectionId = section.getAttribute('id');
+        
+        if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+          navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#' + sectionId) {
+              link.classList.add('active');
+            }
+          });
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateActiveNav);
+    updateActiveNav();
+  </script>
 
 </body>
 </html>
