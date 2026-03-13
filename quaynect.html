@@ -54,12 +54,13 @@
       background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
       display: flex;
       align-items: center;
-      overflow: hidden;
+      overflow-x: clip;
+      overflow-y: visible;
       padding: 60px 0 0;
     }
     .hero .container {
       display: flex;
-      align-items: center;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 20px;
       position: relative;
@@ -70,8 +71,9 @@
     .hero-text {
       flex: 0 0 45%;
       color: #1a1a1a;
-      padding-bottom: 60px;
+      padding-bottom: 80px;
       padding-left: 40px;
+      align-self: center;
     }
     .hero-logo {
       display: flex;
@@ -93,11 +95,10 @@
       height: clamp(50px, 6vw, 80px);
       width: auto;
     }
-    .hero-tagline {
-      font-size: clamp(1.1rem, 2vw, 1.5rem);
-      font-weight: 300;
-      color: #777;
-      margin-top: 0;
+    .hero-subtitle-img {
+      height: clamp(18px, 2.5vw, 28px);
+      width: auto;
+      margin-top: 4px;
       margin-left: 134px;
     }
     .hero-phone {
@@ -105,6 +106,8 @@
       position: relative;
       align-self: flex-end;
       margin-right: -100px;
+      margin-bottom: 0;
+      line-height: 0;
     }
     .hero-phone img {
       width: 100%;
@@ -292,7 +295,7 @@
     }
 
     /* ===== PROCESS WORK ===== */
-    .process { padding: 60px 0; text-align: center; background: #fff; }
+    .process { padding: 60px 0; text-align: center; }
     .process-title {
       font-size: 1.1rem;
       font-weight: 600;
@@ -301,34 +304,25 @@
     }
     .process-gallery {
       display: flex;
-      gap: 20px;
+      gap: 16px;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding: 10px 24px 20px;
+      padding-bottom: 12px;
       -webkit-overflow-scrolling: touch;
-      scroll-behavior: smooth;
     }
-    .process-gallery::-webkit-scrollbar { height: 8px; }
-    .process-gallery::-webkit-scrollbar-track { background: #f0f0f0; border-radius: 4px; }
-    .process-gallery::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
-    .process-gallery::-webkit-scrollbar-thumb:hover { background: #aaa; }
+    .process-gallery::-webkit-scrollbar { height: 6px; }
+    .process-gallery::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
     .process-img {
-      flex: 0 0 280px;
-      height: 280px;
-      border-radius: 16px;
+      flex: 0 0 240px;
+      height: 240px;
+      border-radius: 10px;
       scroll-snap-align: start;
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .process-img:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.12);
     }
     .process-img img {
       width: 100%; height: 100%;
       object-fit: cover;
-      border-radius: 16px;
+      border-radius: 10px;
     }
 
     /* ===== STAKEHOLDER ===== */
@@ -742,13 +736,13 @@
     <div class="container">
       <div class="hero-text">
         <div class="hero-logo">
-          <div class="logo-icon"><img src="images/Quaynect/appicon.png" alt="Quaynect logo"></div>
-          <img src="images/Quaynect/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
+          <div class="logo-icon"><img src="Images/appicon.png" alt="Quaynect logo"></div>
+          <img src="Images/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
         </div>
-        <p class="hero-tagline">All In one central Platform</p>
+        <img src="Images/Subtitle.png" alt="All In one central Platform" class="hero-subtitle-img">
       </div>
       <div class="hero-phone">
-        <img src="images/Quaynect/herophone.png" alt="Hand holding phone showing the Quaynect app">
+        <img src="Images/herophone.png" alt="Hand holding phone showing the Quaynect app">
       </div>
     </div>
   </section>
@@ -841,12 +835,10 @@
     <div class="container">
       <h2 class="process-title">Process Work</h2>
       <div class="process-gallery">
-        <div class="process-img"><img src="images/Quaynect/Processwork%201.png" alt="Team brainstorming session"></div>
-        <div class="process-img"><img src="images/Quaynect/Sticky%201.png" alt="Transit category sticky notes"></div>
-        <div class="process-img"><img src="images/Quaynect/Sticky%202.png" alt="Leisure category sticky notes"></div>
-        <div class="process-img"><img src="images/Quaynect/Sticky%203.png" alt="Research sticky notes"></div>
-        <div class="process-img"><img src="images/Quaynect/Sticky%204.png" alt="Additional sticky notes"></div>
-        <div class="process-img"><img src="images/Quaynect/Processwork%202.png" alt="Team collaboration"></div>
+        <div class="process-img"><img src="images/process-transit.png" alt="Transit category sticky notes"></div>
+        <div class="process-img"><img src="images/process-leisure.png" alt="Leisure category sticky notes"></div>
+        <div class="process-img"><img src="images/process-health-safety.png" alt="Health & Safety category sticky notes"></div>
+        <div class="process-img"><img src="images/process-entertainment.png" alt="Entertainment & Attractions category sticky notes"></div>
       </div>
     </div>
   </section>
@@ -921,8 +913,8 @@
         <div class="solution-phone" style="border-radius: 24px;">App Screen</div>
       </div>
       <div class="solution-logo">
-        <div class="logo-icon"><img src="images/Quaynect/appicon.png" alt="Quaynect icon"></div>
-        <img src="images/Quaynect/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
+        <div class="logo-icon"><img src="Images/appicon.png" alt="Quaynect icon"></div>
+        <img src="Images/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
       </div>
     </div>
   </section>
