@@ -54,9 +54,20 @@
       background: linear-gradient(180deg, #ffffff 0%, #f8f8f8 50%, #f0f0f0 100%);
       display: flex;
       align-items: center;
-      overflow-x: clip;
-      overflow-y: visible;
+      overflow: clip;
       padding: 60px 0 0;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60%;
+      max-width: 500px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(200,210,230,0.45) 25%, rgba(200,210,230,0.45) 75%, transparent 100%);
+      filter: blur(0.5px);
     }
     .hero .container {
       display: flex;
@@ -67,11 +78,11 @@
       z-index: 1;
       max-width: 1400px;
       padding-right: 0;
+      width: 100%;
     }
     .hero-text {
-      flex: 0 0 45%;
+      flex: 0 1 45%;
       color: #1a1a1a;
-      padding-bottom: 80px;
       padding-left: 40px;
       align-self: center;
     }
@@ -102,16 +113,15 @@
       margin-left: 134px;
     }
     .hero-phone {
-      flex: 0 0 55%;
+      flex: 0 1 50%;
       position: relative;
       align-self: flex-end;
-      margin-right: -100px;
-      margin-bottom: 0;
+      margin-right: -60px;
       line-height: 0;
     }
     .hero-phone img {
       width: 100%;
-      max-width: 750px;
+      max-width: 600px;
       height: auto;
       display: block;
       margin-left: auto;
@@ -296,6 +306,7 @@
 
     /* ===== PROCESS WORK ===== */
     .process { padding: 60px 0; text-align: center; }
+    .process .container { max-width: 100%; padding: 0; }
     .process-title {
       font-size: 1.1rem;
       font-weight: 600;
@@ -304,24 +315,27 @@
     }
     .process-gallery {
       display: flex;
-      gap: 16px;
+      gap: 12px;
+      justify-content: center;
+      flex-wrap: nowrap;
       overflow-x: auto;
       scroll-snap-type: x mandatory;
-      padding-bottom: 12px;
       -webkit-overflow-scrolling: touch;
+      padding: 0 24px;
     }
     .process-gallery::-webkit-scrollbar { height: 6px; }
     .process-gallery::-webkit-scrollbar-thumb { background: #ccc; border-radius: 3px; }
     .process-img {
-      flex: 0 0 240px;
-      height: 240px;
-      border-radius: 10px;
+      flex: 0 0 auto;
+      height: 200px;
       scroll-snap-align: start;
       overflow: hidden;
+      border-radius: 10px;
     }
     .process-img img {
-      width: 100%; height: 100%;
+      width: auto; height: 100%;
       object-fit: cover;
+      display: block;
       border-radius: 10px;
     }
 
@@ -342,22 +356,19 @@
       color: #666;
       line-height: 1.7;
     }
-    .stakeholder-map-placeholder {
+    .stakeholder-map {
       max-width: 800px;
       margin: 0 auto;
-      height: 400px;
-      background: #f7f8fb;
-      border: 2px solid #e5e7ec;
       border-radius: 16px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #aaa;
-      font-size: 0.85rem;
-      gap: 8px;
+      overflow: hidden;
+      border: 2px solid #e5e7ec;
+      background: #f7f8fb;
     }
-    .stakeholder-map-placeholder span { font-size: 0.75rem; }
+    .stakeholder-map img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
     /* ===== KEY INSIGHTS ===== */
     .insights {
@@ -736,18 +747,16 @@
     <div class="container">
       <div class="hero-text">
         <div class="hero-logo">
-          <div class="logo-icon"><img src="Images/appicon.png" alt="Quaynect logo"></div>
-          <img src="Images/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
+          <div class="logo-icon"><img src="Images-Quaynect/appicon.png" alt="Quaynect logo"></div>
+          <img src="Images-Quaynect/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
         </div>
-        <img src="Images/Subtitle.png" alt="All In one central Platform" class="hero-subtitle-img">
+        <img src="Images-Quaynect/Subtitle.png" alt="All In one central Platform" class="hero-subtitle-img">
       </div>
       <div class="hero-phone">
-        <img src="Images/herophone.png" alt="Hand holding phone showing the Quaynect app">
+        <img src="Images-Quaynect/herophone.png" alt="Hand holding phone showing the Quaynect app">
       </div>
     </div>
   </section>
-
-  <div class="section-divider"></div>
 
   <!-- ======================== ABOUT ======================== -->
   <section class="about">
@@ -811,17 +820,17 @@
     <div class="container">
       <div class="quote-scatter">
         <div class="quote-row">
-          <div class="quote-card">“Downtown housing prices aren’t fair, especially for students … utilities can cost $80/month.”</div>
-          <div class="quote-card">“Open, versatile spaces where people can hang out without spending money are key.”</div>
+          <div class="quote-card">&#8220;Downtown housing prices aren&#8217;t fair, especially for students &#8230; utilities can cost $80/month.&#8221;</div>
+          <div class="quote-card">&#8220;Open, versatile spaces where people can hang out without spending money are key.&#8221;</div>
         </div>
         <div class="quote-row">
-          <div class="quote-card">“I love when it [a space] feels designed for people to actually spend time … tables, benches, greenery, shade.”</div>
-          <div class="quote-card">“Being able to live rent-free made a huge difference.”</div>
-          <div class="quote-card">“I struggle with studying … need specific conditions … new task, new place … body doubling with friends on the roof.”</div>
+          <div class="quote-card">&#8220;I love when it [a space] feels designed for people to actually spend time &#8230; tables, benches, greenery, shade.&#8221;</div>
+          <div class="quote-card">&#8220;Being able to live rent-free made a huge difference.&#8221;</div>
+          <div class="quote-card">&#8220;I struggle with studying &#8230; need specific conditions &#8230; new task, new place &#8230; body doubling with friends on the roof.&#8221;</div>
         </div>
         <div class="quote-row">
-          <div class="quote-card">“It’s a bit confusing, you have to go through like a hundred different pages and websites to pay everything.”</div>
-          <div class="quote-card">“I feel like things being too expensive … wouldn’t attend events … doesn’t need to be that way.”</div>
+          <div class="quote-card">&#8220;It&#8217;s a bit confusing, you have to go through like a hundred different pages and websites to pay everything.&#8221;</div>
+          <div class="quote-card">&#8220;I feel like things being too expensive &#8230; wouldn&#8217;t attend events &#8230; doesn&#8217;t need to be that way.&#8221;</div>
         </div>
       </div>
       <p class="affinity-caption">
@@ -835,10 +844,12 @@
     <div class="container">
       <h2 class="process-title">Process Work</h2>
       <div class="process-gallery">
-        <div class="process-img"><img src="images/process-transit.png" alt="Transit category sticky notes"></div>
-        <div class="process-img"><img src="images/process-leisure.png" alt="Leisure category sticky notes"></div>
-        <div class="process-img"><img src="images/process-health-safety.png" alt="Health & Safety category sticky notes"></div>
-        <div class="process-img"><img src="images/process-entertainment.png" alt="Entertainment & Attractions category sticky notes"></div>
+        <div class="process-img"><img src="Images-Quaynect/Processwork 1.png" alt="Process work photo 1"></div>
+        <div class="process-img"><img src="Images-Quaynect/Sticky 1.png" alt="Sticky notes 1"></div>
+        <div class="process-img"><img src="Images-Quaynect/Sticky 2.png" alt="Sticky notes 2"></div>
+        <div class="process-img"><img src="Images-Quaynect/Sticky 3.png" alt="Sticky notes 3"></div>
+        <div class="process-img"><img src="Images-Quaynect/Sticky 4.png" alt="Sticky notes 4"></div>
+        <div class="process-img"><img src="Images-Quaynect/Processwork 2.png" alt="Process work photo 2"></div>
       </div>
     </div>
   </section>
@@ -848,9 +859,8 @@
     <div class="container">
       <h2>Stakeholder Mapping</h2>
       <p>These patterns were then translated into stakeholder maps, allowing us to understand relationships between residents, building staff, and systems, and to locate where breakdowns and opportunities emerged within the broader service ecosystem.</p>
-      <div class="stakeholder-map-placeholder">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="#ccc"><path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/></svg>
-        <span>Stakeholder Map Image</span>
+      <div class="stakeholder-map">
+        <img src="Images-Quaynect/StakeMap.png" alt="Stakeholder Map">
       </div>
     </div>
   </section>
@@ -863,7 +873,7 @@
 
         <div class="insight-card">
           <div class="insight-number">
-            <span class="arrow">↗</span>
+            <span class="arrow">&#8599;</span>
             <span>01.</span>
           </div>
           <p class="insight-label">Convenience</p>
@@ -872,7 +882,7 @@
 
         <div class="insight-card">
           <div class="insight-number">
-            <span class="arrow">↗</span>
+            <span class="arrow">&#8599;</span>
             <span>02.</span>
           </div>
           <p class="insight-label">Belonging</p>
@@ -881,7 +891,7 @@
 
         <div class="insight-card">
           <div class="insight-number">
-            <span class="arrow">↗</span>
+            <span class="arrow">&#8599;</span>
             <span>03.</span>
           </div>
           <p class="insight-label">Affordability</p>
@@ -913,8 +923,8 @@
         <div class="solution-phone" style="border-radius: 24px;">App Screen</div>
       </div>
       <div class="solution-logo">
-        <div class="logo-icon"><img src="Images/appicon.png" alt="Quaynect icon"></div>
-        <img src="Images/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
+        <div class="logo-icon"><img src="Images-Quaynect/appicon.png" alt="Quaynect icon"></div>
+        <img src="Images-Quaynect/Quaynect-Name.png" alt="Quaynect" class="wordmark-img">
       </div>
     </div>
   </section>
@@ -972,7 +982,7 @@
       <div class="insights-grid">
         <div class="insight-card">
           <div class="insight-number">
-            <span class="arrow">↗</span>
+            <span class="arrow">&#8599;</span>
             <span>01.</span>
           </div>
           <p class="insight-label">User Research</p>
@@ -980,7 +990,7 @@
         </div>
         <div class="insight-card">
           <div class="insight-number">
-            <span class="arrow">↗</span>
+            <span class="arrow">&#8599;</span>
             <span>02.</span>
           </div>
           <p class="insight-label">Iterative Design</p>
@@ -988,7 +998,7 @@
         </div>
         <div class="insight-card">
           <div class="insight-number">
-            <span class="arrow">↗</span>
+            <span class="arrow">&#8599;</span>
             <span>03.</span>
           </div>
           <p class="insight-label">Systems Thinking</p>
